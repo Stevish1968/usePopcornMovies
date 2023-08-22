@@ -16,12 +16,14 @@ export default function SelectedMovie({ movieId, onClick }) {
         Actors: actors,
         Director: director,
         Genre: genre
-    } = movie
+    } = movie ;
+
+
+console.log(movieId)
 
     useEffect(() => function () {
         async function getMovieDetail() {
             const res = await fetch(`https://www.omdbapi.com/?apikey=b717c2e0&i=${movieId}`)
-            //if (!res.ok) throw new Error('Something went wrong while fetching')
             const data = await res.json()
             setMovie(data)
         }

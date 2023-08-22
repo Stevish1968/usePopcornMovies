@@ -69,6 +69,14 @@ export default function App() {
   const [errors, setErrors] = useState('')
   const [movieId, setMovieId] = useState(null);
 
+  function handleMovieSelect(id) {
+    setMovieId((movieId) => (id === movieId ? null : id))
+  }
+
+  function onCloseMovie() {
+    setMovieId(null)
+  }
+
 
   useEffect(() => function () {
     async function getMovies() {
@@ -100,13 +108,6 @@ export default function App() {
     getMovies()
   }, [query])
 
-  function handleMovieSelect(id) {
-   setMovieId((movieId) => (id === movieId ?  null : id  ))
-  }
-
-  function onCloseMovie() {
-    setMovieId(null)
-  }
 
   return (
     <>
